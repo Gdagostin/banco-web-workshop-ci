@@ -5,28 +5,28 @@ on:
   workflow_dispatch:
 
 jobs:
-   tests:
-      runs-on: ubunto-latest
+  tests:
+    runs-on: ubunto-latest
 
-      env:
-        API_BASEURL: 'http://localhost:3000'
-        PORT: 4000
+    env:
+      API_BASEURL: 'http://localhost:3000'
+      PORT: 4000
 
-      steps:
-        - name: Checkout do repositório
-          uses: actions/checkout@v4
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
 
-        - name: Instalar deps
-          run: npm install
+      - name: Instalar deps
+        run: npm install
 
-        - name: Iniciar o serrvidor de mocks
-          run: npm run mock-server
+      - name: Iniciar o serrvidor de mocks
+        run: npm run mock-server &
 
-        - name: Iniciar o serrvidor da aplicacao
-          run: npm run server
+      - name: Iniciar o serrvidor da aplicacao
+        run: npm run server &
 
-        - name: Executar os testes
-          run: npx cypress run
+      - name: Executar os testes
+        run: npx cypress run
 
           
 
