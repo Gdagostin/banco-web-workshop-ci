@@ -1,4 +1,4 @@
-name: 'Banco Web - CI'
+name: "Banco Web - CI"
 
 # gatilhos / triggers
 on:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubunto-latest
 
     env:
-      API_BASEURL: 'http://localhost:3000'
+      API_BASEURL: "http://localhost:3000"
       PORT: 4000
 
     steps:
@@ -27,9 +27,3 @@ jobs:
 
       - name: Executar os testes
         run: npx cypress run
-
-          
-
-
-
-      
